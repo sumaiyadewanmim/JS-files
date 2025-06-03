@@ -1,21 +1,26 @@
-function addAll() {
-  var sum = 0;
-  for (var i = 0; i < arguments.length; i++) {
-    sum += arguments[i];
+function greet(msg) {
+  function greetings(name) {
+    return msg + " , " + name + "!";
   }
-  return sum;
+  return greetings;
 }
 
-var result = addAll(1, 2, 3, 4, 5, 6, 7, 8, 9);
-console.log(result);
+var gm = greet("Good Night");
+var gn = greet("Have a Nice Dream");
 
-function person(name, email) {
-  return {
-    name: name,
-    email: email,
+var msg = gm("Sumaiya Dewan Mim");
+
+console.log(gn("Mariya"));
+console.log(msg);
+
+function base(b) {
+  return function (n) {
+    var result = 1;
+    for (var i = 0; i < b; i++) {
+      result *= n;
+    }
+    return result;
   };
-  // console.log("haha");
 }
-//we can resturn at last
-var p1 = person("Sumaiya Dewan Mim", "sumaiyadewanmim@gmail.com");
-console.log(p1);
+var base10 = base(10);
+console.log(base10(2));
