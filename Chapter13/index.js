@@ -31,12 +31,32 @@
 //   configurable: false,
 // });
 
+// 126
 function Square(width) {
   this.width = width;
-
-  this.draw = function () {
-    console.log("Draw");
+  this.getwidth = function () {
+    console.log("Width is " + this.width);
+    //this.draw();
   };
 }
+
+Square.prototype = {
+  constructor: Square,
+  draw: function () {
+    this.getwidth();
+    console.log("Draw");
+  },
+  toString: function () {
+    return "My Width is = " + this.width;
+  },
+};
+
 var sqr1 = new Square(10);
 var sqr2 = new Square(5);
+//Iterate Object and HasOwnProperty in JS
+//console.log(Object.keys(sqr1))
+
+//for (var i in sqr1){
+// console.log(i)
+//}
+//128. Don't Overwrite Built in Prototypes in Javascript
